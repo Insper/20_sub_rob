@@ -2,7 +2,7 @@
 
 [Mais orientações no README](./README.md)
 
-## Prova SUB e Delta
+## Prova SUB
 
 **Você deve escolher somente 3 questões para fazer. Todo mundo que fizer pelo menos uma questão ganha 0.1**
 
@@ -15,7 +15,6 @@ Questões que fez:____________
 
 Observações de avaliações nesta disciplina:
 
-* Se você já fez as duas provas anteriores, só pode fazer esta prova caso não tenha atingido 5.0 em pelo menos uma delas. Neste caso esta prova funcionará como delta e a nota satura em 5 pontos.
 * Tenha os repositórios https://github.com/Insper/robot20/ e https://github.com/arnaldojr/my_simulation atualizados em seu catkin_ws/src .
 * Você pode consultar a internet ou qualquer material, mas não pode se comunicar com pessoas ou colegas a respeito da prova
 * Ponha o nome no enunciado da prova no Github
