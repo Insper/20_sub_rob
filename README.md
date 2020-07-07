@@ -1,4 +1,4 @@
-# Robótica 2020.1 SUB e Delta
+# Robótica 2020.1 SUB
 
 Robótica 2020 - Prova 2 - AF 
 
