@@ -108,6 +108,7 @@ Todas as cartas com naipes vermelhos são de ouros
 
 Todas as cartas com naipes pretos são de paus
 
+Baixe os arquivos de vídeo [neste link](https://github.com/Insper/robot20/raw/master/media/cartas.mp4)
 
 
 
