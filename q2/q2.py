@@ -3,7 +3,7 @@
 
 # Este NÃO é um programa ROS
 
-# GABARITO. Este codigo pode ser visto em
+# GABARITO. Este codigo pode ser visto em 
 # https://youtu.be/pEW6QEdeqSU
 
 from __future__ import print_function, division 
