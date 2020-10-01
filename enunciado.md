@@ -60,7 +60,7 @@ Se o penúltimo dígito seu RA for par, você deve considerar o triângulo verde
 
 A função `triutil.point_in_triangle()` é fornecida pronta e verifica se um ponto está contido num triângulo ou não. Analise e execute o programa `tritest.py` para saber como ela funciona
 
-Você vai notar que este programa roda o vídeo `triangulos.mp4`. 
+Você vai notar que este programa roda o vídeo `triangulos.mp4`. Baixe o vídeo [neste endereço](https://github.com/Insper/robot20/raw/master/media/triangulos.mp4)
 
 Trabalhe no arquivo `q1/q1.py`. Este exercício **não precisa** de ROS
 
