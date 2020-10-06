@@ -9,6 +9,12 @@ import cv2
 import os,sys, os.path
 import numpy as np
 
+# No Ubuntu 18.04
+# Faca sudo apt install python-numba
+# No Anaconda
+# conda install numba
+from numba import jit
+
 import triutil
 
 print("Rodando Python versão ", sys.version)
@@ -28,6 +34,27 @@ def crosshair(img, point, size, color):
     cv2.line(img,(x,y - size),(x, y + size),color,5)
 
 
+@jit(nopython=True)
+def check_levels(imagem_gray):
+    maior_i = -1
+    menor_i = imagem_gray.shape[0] + 1
+    menor_j = imagem_gray.shape[1] + 1
+    maior_j = -1
+    for i in range(imagem_gray.shape[0]):
+        for j in range(imagem_gray.shape[1]):
+            if imagem_gray[i][j] == 255:
+                if i < menor_i:
+                    menor_i = i
+                if i  > maior_i:
+                    maior_i = i
+                if j  > maior_j:
+                    maior_j = j 
+                if j < menor_j:
+                    menor_j = j
+    return menor_i, maior_i, menor_j, maior_j
+
+
+
 def acha_triangulo(bgr):
     print(bgr.shape)
     red = bgr[:,:,2]
@@ -42,18 +69,10 @@ def acha_triangulo(bgr):
     menor_j = imagem_gray.shape[1] + 1
     maior_j = -1
 
-    for i in range(imagem_gray.shape[0]):
-        for j in range(imagem_gray.shape[1]):
-            if imagem_gray[i][j] == 255:
-                if i < menor_i:
-                    menor_i = i
-                if i  > maior_i:
-                    maior_i = i
-                if j  > maior_j:
-                    maior_j = j 
-                if j < menor_j:
-                    menor_j = j
+
     
+    menor_i, maior_i, menor_j, maior_j=check_levels(imagem_gray)
+
     media_j  = int((maior_j + menor_j)/2)
 
     c = ( media_j, menor_i) # ponto de cima
@@ -94,6 +113,7 @@ if __name__ == "__main__":
     # Inicializa a aquisição da webcam
     cap = cv2.VideoCapture(video)
 
+    cap.set(cv2.CAP_PROP_FPS, 1)
 
     print("Se a janela com a imagem não aparecer em primeiro plano dê Alt-Tab")
 
@@ -131,7 +151,7 @@ if __name__ == "__main__":
         # NOTE que em testes a OpenCV 4.0 requereu frames em BGR para o cv2.imshow
         cv2.imshow('imagem', frame)
 
-        if cv2.waitKey(1) & 0xFF == ord('q'):
+        if cv2.waitKey(300) & 0xFF == ord('q'):
             break
 
     # When everything done, release the capture
